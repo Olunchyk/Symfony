@@ -1,0 +1,24 @@
+ShopBundle\Entity\Category:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+          strategy: IDENTITY
+    name:
+      type: string
+      length: 100
+  manyToMany:
+    products:
+      targetEntity: Product
+      joinTable:
+        name: products_categories
+        joinColumns:
+          category_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          product_id:
+            referencedColumnName: id

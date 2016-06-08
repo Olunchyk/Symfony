@@ -1,0 +1,36 @@
+{# app/Resources/views/lucky/number.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body>
+    <h1>Main page</h1>
+    <div class="categories" style="display: inline-block;">
+        <p>Appliances:</p>
+        <ul>
+            {% for category in categories %}
+                <li><a href="/category/{{ category.name }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="products" style="display: inline-block; margin-left: 100px">
+        <p>Firms :</p>
+        <table>
+            <thead>
+            <th>Id</th>
+            <th>Name</th>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td><a href="/product/{{ product.id }}">{{ product.name }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    </body>
+
+{% endblock %}
